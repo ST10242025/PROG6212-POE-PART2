@@ -1,0 +1,61 @@
+﻿@model IEnumerable<CMCS.Models.Claims>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container">
+    <h1>Claims</h1>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.First().Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Surname)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().HoursWorked)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().HourlyRate)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().ClaimDate)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Description)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Documentation)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().Status)</th>                
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr id="claim-@item.id">
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Surname)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.HoursWorked)</td>
+                        <td>@Html.DisplayFor(modelItem => item.HourlyRate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ClaimDate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Documentation)</td>
+                        <td><span class="badge badge-secondary">@Html.DisplayFor(modelItem => item.Status)</span></td>                       
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/signalr/dist/signalr.js"></script>
+    <script>
+        var connection = new signalR.HubConnectionBuilder().withUrl("/claimHub").build();
+
+        connection.on("ReceiveClaimUpdate", function (claim) {
+            var claimElement = document.getElementById(`claim-${claim.id}`);
+            if (claimElement) {
+                claimElement.querySelector("span.badge").textContent = claim.Status;
+            }
+        });
+
+        connection.start().catch(function (err) {
+            return console.error(err.toString());
+        });
+    </script>
+}

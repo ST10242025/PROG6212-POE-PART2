@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "_Layout.cshtml";
+}
+<header>
+    <!-- Navbar with better accessibility and structure -->
+    <nav class="navbar navbar-expand-sm navbar-custom" role="navigation" aria-label="Main Navigation">
+        <div class="container-fluid">
+            <!-- Logo link to home page -->
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <img src="~/images/logo.png" alt="CMCS System Logo" />
+            </a>
+
+            <!-- System name link to home page -->
+            <a class="sysname" asp-area="" asp-controller="Home" asp-action="Index">
+                EduFlex Contracts
+            </a>
+
+            <!-- Navbar items for mobile view -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Collapsible navbar content -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <!-- Submit a Claim page button -->
+                    <li class="nav-item">
+                        <a class="btn" asp-area="" asp-controller="Claims" asp-action="Create">Submit a Claim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn" asp-area="" asp-controller="Claims" asp-action="Status">Claim Status</a>
+                    </li>
+                    <!-- Contact Us page button -->
+                    <li class="nav-item">
+                        <a class="btn" asp-area="" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+                    </li>                    
+                    <!-- Admin Area button aligned to the right -->
+                    <li class="nav-item ms-auto">
+                        <a class="btn" asp-area="Admin" asp-controller="Home" asp-action="Index">Admin Area</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="background"></div>
+        <div class="content"></div>
+    </nav>
+</header>
+
+<!-- Main content section -->
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<!-- Scripts -->
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
