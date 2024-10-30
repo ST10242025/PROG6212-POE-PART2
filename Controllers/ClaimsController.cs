@@ -9,7 +9,7 @@ using CMCS.Data;
 using CMCS.Models;
 using Microsoft.AspNetCore.SignalR; 
 using CMCS.Hubs;
-using Microsoft.AspNet.SignalR;
+
 
 namespace CMCS.Controllers
 {
@@ -196,9 +196,8 @@ namespace CMCS.Controllers
         }
 
         private async Task NotifyClients(Claims claim)
-        {
-            var hubContext = GlobalHost.ConnectionManager.GetHubContext<ClaimHub>();
-            await hubContext.Clients.All.SendAsync("ReceiveClaimUpdate", claim);
+        {            
+            await _hubContext.Clients.All.SendAsync("ReceiveClaimUpdate", claim);
         }
     }
 }

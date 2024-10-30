@@ -59,3 +59,42 @@
         });
     </script>
 }
+
+
+<div id="claims">
+    @foreach (var claim in Model)
+    {
+        <div id="claim-@claim.id">
+            <p>Claim ID: @claim.id</p>
+            <p>Status: <span>@claim.Status</span></p>
+            <div class="progress">
+                <div class="progress-bar" style="width: @(claim.Status == "Approved" ? "100%" : claim.Status == "Rejected" ? "0%" : "50%")">
+                    @claim.Status
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script src="~/lib/signalr/signalr.js"></script>
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/claimHub")
+        .build();
+
+    connection.on("ReceiveClaimUpdate", function (claim) {
+        // Update the progress bar and claim status in the UI
+        updateClaimStatus(claim);
+    });
+
+    connection.start().catch(function (err) {
+        return console.error(err.toString());
+    });
+
+    function updateClaimStatus(claim) {
+        // Logic to update the UI with the new claim status
+        const claimElement = document.getElementById(`claim-${claim.id}`);
+        claimElement.innerText = claim.status;
+        // Update progress bar logic here
+    }
+</script>
