@@ -1,0 +1,118 @@
+/* Base Colors */
+:root {
+    --blue: #5DE2E7;
+    --red: #E4080A;
+    --light-gray-blue: #D1DFEF;
+    --white: #FFFFFF;
+    --yellow: #FDCC01;
+    --black: #000000;
+    --navy-blue: #000080;
+}
+
+
+/* Header Styling */
+.header {
+    background-color: var(--blue);
+    border-bottom: 1px solid #000000;
+    padding: 10px 0;
+}
+
+body {
+    background-color: var(--white);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.navbar-nav .nav-link {
+    color: var(--navy-blue);
+}
+
+.btn-blue {
+    background-color: #007bff; 
+    border-color: #007bff; 
+    color: white; 
+}
+
+    .btn-blue:hover {
+        background-color: #0056b3; 
+        border-color: #0056b3; 
+    }
+.navbar-custom .sysname {
+    color: #000080;
+    font-weight: bold;
+    font-size: 1.7rem;
+    text-decoration: none;
+}
+
+/* Bold Register and Login buttons */
+.navbar-nav .nav-link.register,
+.navbar-nav .nav-link.login {
+    font-weight: bold;
+    color: #7f3f98;
+    font-size: 1.25rem;
+    margin-left: 10px;
+    text-decoration: underline;
+}
+
+    /* Change color on hover for Register and Login buttons */
+    .navbar-nav .nav-link.register:hover,
+    .navbar-nav .nav-link.login:hover {
+        color: var(--yellow);
+        text-decoration: underline;
+    }
+
+/* Custom styles for the navbar */
+.navbar-custom {
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.navbar-brand img {
+    max-height: 70px;
+    width: auto;
+}
+
+.navbar-custom .nav-link {
+    color: #000;
+}
+
+.navbar-custom .btn {
+    background-color: #69bd45;
+    color: #fff;
+    margin-left: 10px;
+    border-radius: 20px;
+}
+
+.background {
+    background-image: url('/images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute; /* Allows it to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensures it stays behind other content */
+}
+
+/* Footer Styling */
+.footer {
+    background-color: var(--white);
+    color: var(--black);
+    text-align: center;
+    padding: 20px 0;
+}
+
+    .footer a {
+        color: var(--black);
+    }
+
+

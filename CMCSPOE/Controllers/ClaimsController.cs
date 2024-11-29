@@ -1,0 +1,344 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using CMCSPOE.Data;
+using CMCSPOE.Models;
+using CMCSPOE.Services;
+using Rotativa.AspNetCore;
+using iText.Kernel.Pdf;
+using iText.Layout;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+
+namespace CMCSPOE.Controllers
+{
+    public class ClaimsController : Controller
+    {
+        private readonly ApplicationDbContext _context;
+        private readonly InvoiceService _invoiceService;
+
+        public ClaimsController(ApplicationDbContext context, InvoiceService invoiceService)
+        {
+            _context = context;
+            _invoiceService = invoiceService;
+        }
+
+        [HttpPost]
+        public IActionResult SubmitClaim(Claims claim)
+        {
+            var verificationService = new ClaimsVerificationService();
+            var (isValid, flagReason) = verificationService.VerifyClaim(claim);
+
+            if (isValid)
+            {
+                claim.Status = "Approved";
+                claim.IsAutomaticallyApproved = true;
+            }
+            else
+            {
+                claim.Status = "Pending";
+                claim.FlagReason = flagReason;
+            }
+
+            _context.Claims.Add(claim);
+            _context.SaveChanges();
+
+            return RedirectToAction("ViewClaims");
+        }
+
+        public IActionResult AdminDashboard()
+        {
+            var pendingClaims = _context.Claims
+                .Where(c => c.Status == "Pending")
+                .ToList();
+            return View(pendingClaims);
+        }
+
+
+        [HttpPost]
+        public IActionResult ApproveClaim(int id)
+        {
+            var claim = _context.Claims.Find(id);
+            if (claim != null)
+            {
+                claim.Status = "Approved";
+                _context.SaveChanges();
+            }
+            return RedirectToAction("AdminDashboard");
+        }
+
+        [HttpPost]
+        public IActionResult RejectClaim(int id)
+        {
+            var claim = _context.Claims.Find(id);
+            if (claim != null)
+            {
+                claim.Status = "Rejected";
+                _context.SaveChanges();
+            }
+            return RedirectToAction("AdminDashboard");
+        }
+
+        public IActionResult ViewClaims()
+        {
+            var claims = _context.Claims.ToList();
+            var groupedClaims = new ClaimsGroupedByStatus
+            {
+                PendingClaims = claims.Where(c => c.Status == "Pending").ToList(),
+                ApprovedClaims = claims.Where(c => c.Status == "Approved").ToList(),
+                RejectedClaims = claims.Where(c => c.Status == "Rejected").ToList()
+            };
+            return View(groupedClaims);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateClaimStatus(int id, string status)
+        {
+            var claim = _context.Claims.Find(id);
+            if (claim != null)
+            {
+                claim.Status = status;
+                _context.SaveChanges();
+
+                // Log status updates
+                var logEntry = $"{DateTime.Now}: Claim ID {claim.Id} updated to {status}.";
+                System.IO.File.AppendAllText("ClaimStatusUpdates.txt", logEntry + Environment.NewLine);
+            }
+
+            // Redirect to the appropriate dashboard or claims view
+            return RedirectToAction("AdminDashboard");
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Claims.ToListAsync());
+        }
+
+        public IActionResult GenerateInvoice()
+        {
+            var invoiceData = _invoiceService.GenerateInvoice();
+            return View(invoiceData);
+        }
+
+        public FileResult DownloadInvoicePdf()
+        {
+            var invoiceList = _invoiceService.GenerateInvoice();
+
+            using (var memoryStream = new MemoryStream())
+            {
+                var writer = new PdfWriter(memoryStream);
+                var pdf = new PdfDocument(writer);
+                var document = new Document(pdf);
+
+                document.Add(new Paragraph("Invoice Report")
+                    .SetTextAlignment(TextAlignment.CENTER)
+                    .SetFontSize(18));
+                document.Add(new Paragraph($"Generated On: {DateTime.Now:dd/MM/yyyy}")
+                    .SetTextAlignment(TextAlignment.RIGHT)
+                    .SetFontSize(10));
+
+                var table = new Table(new float[] { 3, 2, 2, 2, 2, 2 }).UseAllAvailableWidth();
+                table.AddHeaderCell("Lecturer Name");
+                table.AddHeaderCell("Hours Worked");
+                table.AddHeaderCell("Hourly Rate");
+                table.AddHeaderCell("Total Amount");
+                table.AddHeaderCell("Claim Date");
+                table.AddHeaderCell("Generated By");
+
+                foreach (var invoice in invoiceList)
+                {
+                    table.AddCell(invoice.LecturerName);
+                    table.AddCell(invoice.HoursWorked.ToString());
+                    table.AddCell(invoice.HourlyRate.ToString());
+                    table.AddCell(invoice.TotalAmount.ToString());
+                    table.AddCell(invoice.ClaimDate.ToString("dd/MM/yyyy") ?? "N/A");
+                    table.AddCell(invoice.ReportGeneratedBy);
+                }
+
+                if (invoiceList.Any())
+                {
+                    table.AddCell(new Cell(1, 5).Add(new Paragraph("Grand Total")));
+                    table.AddCell(invoiceList[0].GrandTotal.ToString("C") ?? "0.00");
+                }
+
+                document.Add(table);
+                document.Close();
+
+                return File(memoryStream.ToArray(), "application/pdf", "InvoiceReport.pdf");
+            }
+        }
+
+
+        // GET: Claims/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var claims = await _context.Claims
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (claims == null)
+            {
+                return NotFound();
+            }
+
+            return View(claims);
+        }
+
+        // GET: Claims/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Claims/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("id,Name,Surname,Email,HoursWorked,HourlyRate,ClaimDate,Description,Documentation")] Claims claims)
+        {
+            if (ModelState.IsValid)
+            {
+                claims.Status = "Pending"; // Default status
+                _context.Add(claims);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(claims);
+        }
+
+        // Method to fetch claims for HR verification
+        public IActionResult VerifyClaimsHR()
+        {
+            var claims = _context.Claims
+                .Where(c => c.Status == "Pending")
+                .ToList();
+            return View(claims);
+        }
+
+        //[HttpGet]
+        //public IActionResult Edit(int id)
+        //{
+        //    var claim = _context.Claims.FirstOrDefault(c => c.Id == id);
+        //    if (claim == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return View(claim);
+        //}
+
+        [HttpPost]
+        public IActionResult Edit(Claims claim)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Claims.Update(claim);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(claim));
+            }
+            return View(claim);
+        }
+
+        // GET: Claims/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var claims = await _context.Claims.FindAsync(id);
+            if (claims == null)
+            {
+                return NotFound();
+            }
+            return View(claims);
+        }
+
+        // POST: Claims/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Edit(int id, [Bind("id,UserId,Name,Surname,Status,Email,HoursWorked,HourlyRate,ClaimDate,Description,Documentation,CreatedAt,UpdatedAt")] Claims claims)
+        //{
+        //    if (id != claims.Id)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            _context.Update(claims);
+        //            await _context.SaveChangesAsync();
+        //        }
+        //        catch (DbUpdateConcurrencyException)
+        //        {
+        //            if (!ClaimsExists(claims.Id))
+        //            {
+        //                return NotFound();
+        //            }
+        //            else
+        //            {
+        //                throw;
+        //            }
+        //        }
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(claims);
+        //}
+
+        // GET: Claims/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var claims = await _context.Claims
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (claims == null)
+            {
+                return NotFound();
+            }
+
+            return View(claims);
+        }
+
+
+        // POST: Claims/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var claims = await _context.Claims.FindAsync(id);
+            if (claims != null)
+            {
+                _context.Claims.Remove(claims);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool ClaimsExists(int id)
+        {
+            return _context.Claims.Any(e => e.Id == id);
+        }
+
+    }
+}
+
+
+

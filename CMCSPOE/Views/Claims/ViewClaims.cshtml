@@ -1,0 +1,105 @@
+﻿@model ClaimsGroupedByStatus
+
+@{
+    ViewData["Title"] = "View Claims";
+}
+
+<h2>All Claims</h2>
+
+<!-- Pending Claims -->
+<div style="border: 3px solid blue; padding: 10px; margin-bottom: 20px;">
+    <h3>Pending Claims</h3>
+    <table class="table" style="border: 2px solid blue;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Hours Worked</th>
+                <th>Hourly Rate</th>
+                <th>Total</th>
+                <th>Claim Date</th> 
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var claim in Model.PendingClaims)
+            {
+                <tr>
+                    <td>@claim.Name</td>
+                    <td>@claim.Surname</td>
+                    <td>@claim.Email</td>
+                    <td>@claim.HoursWorked</td>
+                    <td>@claim.HourlyRate</td>
+                    <td>@claim.Total</td>
+                    <td>@claim.ClaimDate.ToString("yyyy-MM-dd")</td>
+                    <td>@claim.Notes</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Approved Claims -->
+<div style="border: 3px solid green; padding: 10px; margin-bottom: 20px;">
+    <h3>Approved Claims</h3>
+    <table class="table" style="border: 2px solid green;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Hours Worked</th>
+                <th>Hourly Rate</th>
+                <th>Total</th>
+                <th>Claim Date</th>               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var claim in Model.ApprovedClaims)
+            {
+                <tr>
+                    <td>@claim.Name</td>
+                    <td>@claim.Surname</td>
+                    <td>@claim.Email</td>
+                    <td>@claim.HoursWorked</td>
+                    <td>@claim.HourlyRate</td>
+                    <td>@claim.Total</td>
+                    <td>@claim.ClaimDate.ToString("yyyy-MM-dd")</td>                   
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Rejected Claims -->
+<div style="border: 3px solid red; padding: 10px; margin-bottom: 20px;">
+    <h3>Rejected Claims</h3>
+    <table class="table" style="border: 2px solid red;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Hours Worked</th>
+                <th>Hourly Rate</th>
+                <th>Total</th>
+                <th>Claim Date</th>                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var claim in Model.RejectedClaims)
+            {
+                <tr>
+                    <td>@claim.Name</td>
+                    <td>@claim.Surname</td>
+                    <td>@claim.Email</td>
+                    <td>@claim.HoursWorked</td>
+                    <td>@claim.HourlyRate</td>
+                    <td>@claim.Total</td>
+                    <td>@claim.ClaimDate.ToString("yyyy-MM-dd")</td>                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

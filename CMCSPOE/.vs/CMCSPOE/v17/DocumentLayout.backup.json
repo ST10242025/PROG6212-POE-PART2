@@ -1,0 +1,224 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\portias\\Downloads\\CMCSPOE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|c:\\users\\portias\\downloads\\cmcspoe\\views\\claims\\verifyclaimshr.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|solutionrelative:views\\claims\\verifyclaimshr.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|c:\\users\\portias\\downloads\\cmcspoe\\controllers\\claimscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|solutionrelative:controllers\\claimscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|c:\\users\\portias\\downloads\\cmcspoe\\views\\claims\\generateinvoice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|solutionrelative:views\\claims\\generateinvoice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|c:\\users\\portias\\downloads\\cmcspoe\\views\\claims\\viewclaims.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|solutionrelative:views\\claims\\viewclaims.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|c:\\users\\portias\\downloads\\cmcspoe\\views\\claims\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|solutionrelative:views\\claims\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|c:\\users\\portias\\downloads\\cmcspoe\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|c:\\users\\portias\\downloads\\cmcspoe\\views\\claims\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|solutionrelative:views\\claims\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|c:\\users\\portias\\downloads\\cmcspoe\\controllers\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|solutionrelative:controllers\\roles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|c:\\users\\portias\\downloads\\cmcspoe\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|c:\\users\\portias\\downloads\\cmcspoe\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|c:\\users\\portias\\downloads\\cmcspoe\\models\\claims.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|solutionrelative:models\\claims.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|c:\\users\\portias\\downloads\\cmcspoe\\services\\claimsverificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9BB4230F-33F2-4F41-A062-F3EB4524B4C0}|CMCSPOE.csproj|solutionrelative:services\\claimsverificationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VerifyClaimsHR.cshtml",
+              "DocumentMoniker": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Views\\Claims\\VerifyClaimsHR.cshtml",
+              "RelativeDocumentMoniker": "Views\\Claims\\VerifyClaimsHR.cshtml",
+              "ToolTip": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Views\\Claims\\VerifyClaimsHR.cshtml",
+              "RelativeToolTip": "Views\\Claims\\VerifyClaimsHR.cshtml",
+              "ViewState": "AgIAAA0AAAAAMzMzMzMLwB8AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T20:39:12.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ViewClaims.cshtml",
+              "DocumentMoniker": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Views\\Claims\\ViewClaims.cshtml",
+              "RelativeDocumentMoniker": "Views\\Claims\\ViewClaims.cshtml",
+              "ToolTip": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Views\\Claims\\ViewClaims.cshtml",
+              "RelativeToolTip": "Views\\Claims\\ViewClaims.cshtml",
+              "ViewState": "AgIAABUAAACAZmZmZmYkwCUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T20:38:51.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Views\\Claims\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Claims\\Index.cshtml",
+              "ToolTip": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Views\\Claims\\Index.cshtml",
+              "RelativeToolTip": "Views\\Claims\\Index.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T20:38:39.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAACIAAACAMzMzMzMrwDgAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T20:07:36.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T19:26:50.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\portias\\Downloads\\CMCSPOE\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\portias\\Downloads\\CMCSPOE\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-22T19:26:23.892Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Claims.cs",
+              "DocumentMoniker": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Models\\Claims.cs",
+              "RelativeDocumentMoniker": "Models\\Claims.cs",
+              "ToolTip": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Models\\Claims.cs",
+              "RelativeToolTip": "Models\\Claims.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T16:56:40.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Roles.cs",
+              "DocumentMoniker": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Controllers\\Roles.cs",
+              "RelativeDocumentMoniker": "Controllers\\Roles.cs",
+              "ToolTip": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Controllers\\Roles.cs",
+              "RelativeToolTip": "Controllers\\Roles.cs",
+              "ViewState": "AgIAAJ0AAAAAAAAAAAAAALEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T16:47:10.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClaimsController.cs",
+              "DocumentMoniker": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Controllers\\ClaimsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ClaimsController.cs",
+              "ToolTip": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Controllers\\ClaimsController.cs",
+              "RelativeToolTip": "Controllers\\ClaimsController.cs",
+              "ViewState": "AgIAAD8BAACAZWZmZmYtwEUBAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T16:47:02.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GenerateInvoice.cshtml",
+              "DocumentMoniker": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Views\\Claims\\GenerateInvoice.cshtml",
+              "RelativeDocumentMoniker": "Views\\Claims\\GenerateInvoice.cshtml",
+              "ToolTip": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Views\\Claims\\GenerateInvoice.cshtml",
+              "RelativeToolTip": "Views\\Claims\\GenerateInvoice.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T16:34:38.783Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Views\\Claims\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Claims\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Views\\Claims\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Claims\\Edit.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-22T16:28:29.943Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ClaimsVerificationService.cs",
+              "DocumentMoniker": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Services\\ClaimsVerificationService.cs",
+              "RelativeDocumentMoniker": "Services\\ClaimsVerificationService.cs",
+              "ToolTip": "C:\\Users\\portias\\Downloads\\CMCSPOE\\Services\\ClaimsVerificationService.cs",
+              "RelativeToolTip": "Services\\ClaimsVerificationService.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAIwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T16:25:00.638Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

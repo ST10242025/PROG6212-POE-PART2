@@ -1,0 +1,112 @@
+﻿@* View: Contact Us - Contract Management Claims System *@
+@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<style>
+    .page-title {
+        font-size: 2rem;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .intro-text, .press-inquiries, .thank-you-note {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    .contact-form-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        max-width: 450px;
+        width: 100%;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        background-color: #f8f9fa;
+    }
+
+    label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+    }
+
+        .input-field:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+    .submit-button {
+        background-color: #007BFF;
+        color: white;
+        padding: 12px;
+        font-size: 1rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+
+    .highlight {
+        font-weight: bold;
+        color: #007BFF;
+    }
+
+    .thank-you-note {
+        text-align: center;
+        font-style: italic;
+    }
+</style>
+
+<h1 class="page-title">Contact Contract Management Claims System</h1>
+
+<p class="intro-text">
+    We value your feedback, inquiries, and suggestions. Whether you have a question about our products, want to learn more about our services, or simply want to share your experience with us, we're here to assist you.
+    Please feel free to reach out to us via email at <span class="highlight">info@CMCS.com</span> or by filling out the contact form below. Our dedicated team will get back to you as soon as possible.
+</p>
+
+<p class="press-inquiries">
+    For press inquiries, collaborations, or wholesale opportunities, please contact us at the email above.
+</p>
+
+<div class="contact-form-container">
+    <form class="contact-form">
+        <label for="name">Full Name</label>
+        <input id="name" type="text" placeholder="John Doe" class="input-field" required>
+
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="johndoe@gmail.com" class="input-field" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="How can we help you?" class="input-field" rows="5" required></textarea>
+
+        <input type="submit" value="SEND MESSAGE" class="submit-button">
+    </form>
+</div>
+
+<p class="thank-you-note">
+    Thank you for contacting us. We will get back to you within 24 hours.
+</p>

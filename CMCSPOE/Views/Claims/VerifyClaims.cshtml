@@ -1,0 +1,75 @@
+﻿@model ClaimsGroupedByStatus
+
+<h2>Pending Claims</h2>
+<table class="table" style="border: 2px solid lightblue; margin-bottom: 20px; padding: 10px;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Total</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model.PendingClaims)
+        {
+            <tr>
+                <td>@claim.Name @claim.Surname</td>
+                <td>@claim.Email</td>
+                <td>@claim.Total</td>
+                <td>
+                    <form asp-action="UpdateClaimStatus" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@claim.Id" />
+                        <button type="submit" name="status" value="Approved" class="btn btn-success">Approve</button>
+                    </form>
+                    <form asp-action="UpdateClaimStatus" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@claim.Id" />
+                        <button type="submit" name="status" value="Rejected" class="btn btn-danger">Reject</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Approved Claims</h2>
+<table class="table" style="border: 2px solid green; margin-bottom: 20px; padding: 10px;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model.ApprovedClaims)
+        {
+            <tr>
+                <td>@claim.Name @claim.Surname</td>
+                <td>@claim.Email</td>
+                <td>@claim.Total</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Rejected Claims</h2>
+<table class="table" style="border: 2px solid red; margin-bottom: 20px; padding: 10px;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var claim in Model.RejectedClaims)
+        {
+            <tr>
+                <td>@claim.Name @claim.Surname</td>
+                <td>@claim.Email</td>
+                <td>@claim.Total</td>
+            </tr>
+        }
+    </tbody>
+</table>

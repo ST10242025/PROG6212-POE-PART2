@@ -1,0 +1,81 @@
+﻿@model IEnumerable<CMCSPOE.Models.Claims>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container">
+    <h1>Claims</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.First().Name)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Surname)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Email)</th>
+                <th>@Html.DisplayNameFor(model => model.First().HoursWorked)</th>
+                <th>@Html.DisplayNameFor(model => model.First().HourlyRate)</th>
+                <th>@Html.DisplayNameFor(model => model.First().ClaimDate)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Notes)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Documentation)</th> 
+                <th>@Html.DisplayNameFor(model => model.First().Total)</th>              
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr id="claim-@item.Id">
+                    <!-- Add an ID for real-time updates -->
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Surname)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HoursWorked)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HourlyRate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ClaimDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Notes)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Documentation)</td>
+                    <th>@Html.DisplayFor(modelItem => item.Total)</th>              
+                        
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Auto-calculation logic
+        function calculateTotal() {
+            const hoursWorked = parseFloat($('#HoursWorked').val()) || 0;
+            const hourlyRate = parseFloat($('#HourlyRate').val()) || 0;
+            const total = hoursWorked * hourlyRate;
+            $('#Total').val(total.toFixed(2));
+        }
+
+        // Trigger calculation on input change
+        $('#HoursWorked, #HourlyRate').on('input', calculateTotal);
+
+        // Form validation
+        $('#claimForm').validate({
+            rules: {
+                Name: { required: true, minlength: 2 },
+                Surname: { required: true, minlength: 2 },
+                HoursWorked: { required: true, number: true, min: 0 },
+                HourlyRate: { required: true, number: true, min: 0 }
+            },
+            messages: {
+                Name: { required: "Please enter your name", minlength: "Name must be at least 2 characters long" },
+                Surname: { required: "Please enter your surname", minlength: "Surname must be at least 2 characters long" },
+                HoursWorked: { required: "Please enter hours worked", number: "Must be a valid number", min: "Cannot be negative" },
+                HourlyRate: { required: "Please enter hourly rate", number: "Must be a valid number", min: "Cannot be negative" }
+            },
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            },
+            submitHandler: function (form) {
+                form.submit(); // Allow form submission if valid
+            }
+        });
+    });
+</script>
